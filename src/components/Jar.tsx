@@ -71,8 +71,8 @@ function Jar() {
   }, [jar, fruits]);
 
   return (
-    <Box my={2}>
-      <Stack mb={1} direction="row" alignItems="center">
+    <Box>
+      <Stack direction="row" alignItems="center">
         <Typography variant="h4">Jar</Typography>
         <Box marginLeft="auto">
           <Typography variant="h6">

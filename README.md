@@ -3,7 +3,7 @@
 A modern React application utilizing efficient state management, data fetching, error handling, and data visualization.
 
 ## Link to prod deployment
-https://qerqwer.eqr
+https://fruityvice-test.vercel.app/
 
 ## Packages I've Installed
 

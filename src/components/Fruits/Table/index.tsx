@@ -1,10 +1,9 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import {
-  Table, TableBody, TableCell as MuiTableCell, TableCellProps, TableContainer, TableHead, TableRow, Typography, Box, Stack,
+  Table, TableBody, TableContainer, TableHead, TableRow, Box,
 } from '@mui/material';
 
 import { FilteredFruits, FILTER } from '../../../types';
-import Actions from '../Actions';
 import GroupItem from './GroupItem';
 import TableCell from './TableCell';
 
