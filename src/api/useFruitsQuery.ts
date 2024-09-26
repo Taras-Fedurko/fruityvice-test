@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { Fruit } from '../types';
 import { api } from './apiClient';
+import { AxiosError } from 'axios';
 
 const fetchFruits = async () => {
   const response = await api.get<Fruit[]>('/fruit/all');

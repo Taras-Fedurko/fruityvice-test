@@ -1,7 +1,19 @@
 import { Button, Typography, Box, Paper } from '@mui/material';
 import { FallbackProps } from 'react-error-boundary';
+import { AxiosError } from 'axios';
 
 function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
+  const axiosError = error as AxiosError;
+
+  const handleButtonClick = () => {
+    // If error is related to CORS, open the CORS access page in a new tab
+    if (axiosError?.response?.status === 403) {
+      window.open('https://cors-anywhere.herokuapp.com/', '_blank');
+    } else {
+      resetErrorBoundary(); // Reset the error boundary to retry rendering
+    }
+  };
+
   return (
     <Box
       component={Paper}
@@ -21,12 +33,17 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
       <Typography variant="h3">
         Oops! Something went wrong.
       </Typography>
-      <Typography variant="h6">
-        {error.message}
+      {axiosError?.response?.status === 403 && (
+        <Typography variant="h6">
+          Please visit https://cors-anywhere.herokuapp.com/ and request access to work with the CORS server.
+        </Typography>
+      )}
+      <Typography variant="body1">
+        {axiosError?.message}
       </Typography>
       <Button
         variant="contained"
-        onClick={resetErrorBoundary}
+        onClick={handleButtonClick}
       >
         Try Again
       </Button>
