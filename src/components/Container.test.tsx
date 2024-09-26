@@ -75,43 +75,45 @@ describe('Application', () => {
     });
   };
 
-  test('renders initial a list of fruits and List Jar', async () => {
+  test('renders initial list of fruits and manages Jar actions with table summary', async () => {
     const user = userEvent.setup();
-
     renderComponent();
-
+  
     expect(screen.getByText('Fruits')).toBeInTheDocument();
     expect(screen.getByText('Jar')).toBeInTheDocument();
     expect(screen.getByText('Total Calories: 0')).toBeInTheDocument();
     expect(screen.getByLabelText('Group By')).toBeInTheDocument();
     expect(screen.getByText('None')).toBeInTheDocument();
-
+  
     mockAllFruits.forEach(fruit => {
       expect(screen.getByText(fruit.name)).toBeInTheDocument();
       expect(screen.getByText(`${fruit.nutritions.calories} calories`)).toBeInTheDocument();
       expect(screen.getByLabelText(`Add ${fruit.name} to the jar`)).toBeInTheDocument();
       expect(screen.queryByLabelText(`Remove ${fruit.name} from the jar`)).not.toBeInTheDocument();
     });
-
+  
     await user.click(screen.getByLabelText(`Add ${mockAllFruits[0].name} to the jar`));
     expect(screen.getByText('Total Calories: 81')).toBeInTheDocument();
     expect(screen.getByLabelText(`Remove ${mockAllFruits[0].name} from the jar`)).toBeInTheDocument();
-    expect(screen.getByText(`${mockAllFruits[0].name} x 1`)).toBeInTheDocument();
-
+  
+    expect(screen.getByRole('row', { name: `${mockAllFruits[0].name} 1 81` })).toBeInTheDocument();
+  
     await user.click(screen.getByLabelText(`Add ${mockAllFruits[1].name} to the jar`));
-    expect(screen.getByText(/Total Calories: 110/i)).toBeInTheDocument();
+    expect(screen.getByText('Total Calories: 110')).toBeInTheDocument();
     expect(screen.getByLabelText(`Remove ${mockAllFruits[1].name} from the jar`)).toBeInTheDocument();
-    expect(screen.getByText(`${mockAllFruits[1].name} x 1`)).toBeInTheDocument();
-
+  
+    expect(screen.getByRole('row', { name: `${mockAllFruits[0].name} 1 81` })).toBeInTheDocument();
+    expect(screen.getByRole('row', { name: `${mockAllFruits[1].name} 1 29` })).toBeInTheDocument();
+  
     await user.click(screen.getByLabelText(`Remove ${mockAllFruits[0].name} from the jar`));
-    expect(screen.getByText(/Total Calories: 29/i)).toBeInTheDocument();
-    expect(screen.queryByLabelText(`Remove ${mockAllFruits[0].name} from the jar`)).not.toBeInTheDocument();
-
+    expect(screen.getByText('Total Calories: 29')).toBeInTheDocument();
+    expect(screen.queryByRole('row', { name: `${mockAllFruits[0].name} 1 81` })).not.toBeInTheDocument();
+  
     await user.click(screen.getByLabelText(`Remove ${mockAllFruits[1].name} from the jar`));
-    expect(screen.getByText(/Total Calories: 0/i)).toBeInTheDocument();
-    expect(screen.queryByLabelText(`Remove ${mockAllFruits[1].name} from the jar`)).not.toBeInTheDocument();
+    expect(screen.getByText('Total Calories: 0')).toBeInTheDocument();
+    expect(screen.queryByRole('row', { name: `${mockAllFruits[1].name} 1 29` })).not.toBeInTheDocument();
   });
-
+  
   test('switch to table or list view', async () => {
     const user = userEvent.setup();
 

@@ -7,7 +7,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { FILTER, FilteredFruits } from '../../../types';
-import AddGroupButton from '../AddGroupButton';
+import AddGroupButton from '../ActionsGroup';
 import List from './List';
 
 interface ListIFilteredProps {

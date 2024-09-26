@@ -11,7 +11,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { FILTER, Fruit } from '../../../types';
 import Actions from '../Actions';
 import TableCell from './TableCell';
-import AddGroupButton from '../AddGroupButton';
+import AddGroupButton from '../ActionsGroup';
 
 interface GroupItemProps {
   group: string;

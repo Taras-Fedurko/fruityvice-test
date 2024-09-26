@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Box, Divider, Stack, Typography, Grid2 as Grid } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 import { Chart, ArcElement, Tooltip } from 'chart.js';
 
@@ -100,31 +101,26 @@ function Jar() {
             </Box>
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 12 }}>
-            <Stack spacing={1} mt={4}>
-              <Stack width="100%" direction="row">
-                <Typography variant="subtitle1" fontWeight="600">
-                  Fruit (count)
-                </Typography>
-                <Box marginLeft="auto">
-                  <Typography variant="subtitle1" fontWeight="600">
-                    Calories
-                  </Typography>
-                </Box>
-              </Stack>
-              <Divider />
-              {fruitDetails.map(({ id, name, count, calories }) => (
-                <Stack key={id} width="100%" direction="row">
-                  <Typography variant="body1">
-                    {name} x {count}
-                  </Typography>
-                  <Box marginLeft="auto">
-                    <Typography variant="caption">
-                      {calories}
-                    </Typography>
-                  </Box>
-                </Stack>
-              ))}
-            </Stack>
+          <TableContainer>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Fruit</TableCell>
+                  <TableCell align="center">Count</TableCell>
+                  <TableCell align="right">Calories</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {fruitDetails.map(({ id, name, count, calories }) => (
+                  <TableRow key={id}>
+                    <TableCell sx={{ border: 'none', p: 1 }}>{name}</TableCell>
+                    <TableCell sx={{ border: 'none', p: 1 }} align="center">{count}</TableCell>
+                    <TableCell sx={{ border: 'none', p: 1 }} align="right">{calories}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
           </Grid>
         </Grid>
       )}
