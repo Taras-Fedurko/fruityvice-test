@@ -15,22 +15,27 @@
 ### 1. Material UI
 - [**@mui/material**](https://mui.com/material-ui/getting-started/overview/)
 - [**@mui/icons-material**](https://mui.com/material-ui/material-icons/)
+
 Used for building a responsive and consistent UI with Material Design components, ensuring clean and user-friendly interfaces.
 
 ### 2. React query
 - [**@tanstack/react-query**](https://tanstack.com/query/v4)
+
 Simplifies server-side state management with caching, background updates, and synchronization, allowing for efficient and scalable data fetching and management.
 
 ### 3. Axios
 - [**axios**](https://axios-http.com/)
+
 Chosen for its simplicity and reliability in making HTTP requests to the Fruityvice API, ensuring smooth and consistent data handling.
 
 ### 4. Chartjs
 - [**chart.js**](https://www.chartjs.org/) + [**react-chartjs-2**](https://react-chartjs-2.js.org/)
+
 Integrated to create interactive and visually appealing charts for representing fruit nutrition data, providing an intuitive and dynamic user experience.
 
 ### 5. React Error Boundary
 [**react-error-boundary**](https://github.com/bvaughn/react-error-boundary)
+
 Implemented to handle potential runtime errors gracefully, offering fallback UIs and ensuring uninterrupted user interactions. Choose to install this application to save time on development.
 
 ## Testing Strategy
