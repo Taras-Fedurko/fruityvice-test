@@ -32,4 +32,12 @@ export default [
       'no-multiple-empty-lines': ['error', { "max": 1 }],
     },
   },
+  {
+    files: ['src/**/*.test.{js,jsx,ts,tsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+  },
 ];
