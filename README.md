@@ -1,31 +1,34 @@
-# Create React App
+# Fruityvice Frontend application
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+A modern React application utilizing efficient state management, data fetching, error handling, and data visualization.
 
-## Deploy Your Own
+## Link to prod deployment
+https://qerqwer.eqr
 
-Deploy your own Create React App project with Vercel.
+## Packages I've Installed
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+### 1. [**@mui/material**](https://mui.com/material-ui/getting-started/overview/) + [**@mui/icons-material**](https://mui.com/material-ui/material-icons/)
+Provides a robust set of UI components and icons for building clean, responsive interfaces with minimal effort.
 
-_Live Example: https://create-react-template.vercel.app/_
+### 2. [**@tanstack/react-query**](https://tanstack.com/query/v4)
+Efficiently manages server-side state, handles API caching, background updates, and syncing with minimal code.
 
-## Available Scripts
+### 3. [**axios**](https://axios-http.com/)
+A simple, promise-based HTTP client for making API requests and managing responses easily.
 
-In the project directory, you can run:
+### 4. [**chart.js**](https://www.chartjs.org/) + [**react-chartjs-2**](https://react-chartjs-2.js.org/)
+Powerful charting tools that integrate smoothly with React for creating dynamic, interactive data visualizations.
 
-### `npm start`
+### 5. [**react-error-boundary**](https://github.com/bvaughn/react-error-boundary)
+Easily handles errors in React components by providing fallback UI, ensuring graceful error recovery.
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes. You may also see any lint errors in the console.
+### Running the project
 
-### `npm test`
+1. Install dependencies: `npm install`
+2. Start the project: `npm start`
 
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.
-
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+Let me know if you'd like any further tweaks!
