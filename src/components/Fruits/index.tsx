@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 
 import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 
 import { FILTER, Fruit } from '../../types';
@@ -39,18 +39,20 @@ function Fruits() {
 
   return (
     <Box>
-      <Stack direction="row" alignItems="center" marginBottom={4}>
-        <Typography variant='h4'>Fruits</Typography>
-        <Stack direction="row" gap={2} marginLeft="auto">
-          <FilterSelect
-            disabled={isLoading}
-            options={options}
-            value={groupBy}
-            handleChange={setGroupBy}
-          />
-          <SwitchViewButton setIsList={setIsList} isList={isList} />
-        </Stack>
-      </Stack>
+      <Grid container direction="row" alignItems="center" marginBottom={4}>
+        <Grid size={{ xs: 12, sm: 4 }} paddingBottom={{ xs: 3, sm: 0 }} alignItems="center" textAlign={{ xs: 'center', sm: 'start' }}>
+          <Typography variant='h4'>Fruits</Typography>
+        </Grid>
+        <Grid size={{ xs: 12, sm: 8 }} display="flex" direction="row" justifyContent={{ xs: 'center', sm: 'flex-end' }}  gap={2}>
+            <FilterSelect
+              disabled={isLoading}
+              options={options}
+              value={groupBy}
+              handleChange={setGroupBy}
+            />
+            <SwitchViewButton setIsList={setIsList} isList={isList} />
+        </Grid>
+      </Grid>
 
       {isLoading && <Placeholder />}
 

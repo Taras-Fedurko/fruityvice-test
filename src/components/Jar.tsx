@@ -71,7 +71,7 @@ function Jar() {
   }, [jar, fruits]);
 
   return (
-    <Box>
+    <>
       <Stack direction="row" alignItems="center">
         <Typography variant="h4">Jar</Typography>
         <Box marginLeft="auto">
@@ -128,7 +128,7 @@ function Jar() {
           </Grid>
         </Grid>
       )}
-    </Box>
+    </>
   );
 }
 

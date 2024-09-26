@@ -7,6 +7,16 @@ import {
   SetStateAction,
 } from 'react';
 
+/**
+ * Jar Provider Context
+ * 
+ * This context manages the state of the jar containing fruits.
+ * It separates the `StoreJarContext` (state) and `DispatchJarContext` (actions) 
+ * to prevent unnecessary re-renders of components that only need one part of the context.
+ * 
+ * - `StoreJarContext`: Provides the current state of the jar.
+ * - `DispatchJarContext`: Provides actions to add/remove fruits from the jar.
+ */
 type Jar = Record<string, number>;
 
 const StoreJarContext = createContext<Jar | undefined>(undefined);
